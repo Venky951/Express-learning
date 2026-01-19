@@ -1,0 +1,65 @@
+<%- include('partials/header') %>
+</head>
+<body>
+  
+   <%- include('partials/nav') %>
+   <main class="container mx-auto bg-white shadow-lg rounded-lg p-8 mt-10 max-w-xl">
+    
+    <h2 class="text-5xl text-rose-500 font-bold text-center mb-6">
+      Welcome to Air bnb
+    </h2> 
+    <div class="space-y-6">
+  <h3 class="text-3xl font-semibold text-gray-800 mb-6 text-center">
+    Available Homes for You
+  </h3>
+
+  <div class="space-y-6">
+  <h3 class="text-3xl font-semibold text-gray-800 mb-4">
+    Available Homes 
+  </h3>
+
+  <!-- Horizontal slider -->
+  <div class="flex gap-6 overflow-x-auto pb-4 scroll-smooth">
+
+    <% candidatesdetails.forEach((candidate) => { %>
+      <div class="min-w-[260px] bg-white border rounded-xl shadow-md hover:shadow-lg transition">
+
+        <img
+          src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSEDaMEoX0Tkzqw74YSBab3HI2czZ14hUpGxq1Wuko5h6hGPVhF"
+          alt="House Image"
+          class="w-full h-40 object-cover rounded-t-xl"
+        />
+
+        <div class="p-4 space-y-1">
+          <h4 class="text-lg font-bold text-gray-800">
+            <%= candidate.name %>
+          </h4>
+
+          <p class="text-sm text-gray-600 font-semibold">
+            💰 <%= candidate.price %>
+        </p>
+
+          <p class="text-sm text-gray-600 font-semibold">
+            📍 <%= candidate.location %>
+          </p>
+
+         
+
+          
+          <p class="text-sm text-gray-600 font-semibold">
+            ⭐ <%= candidate.Rating %>
+          </p>
+        </div>
+
+      </div>
+    <% }) %>
+
+  </div>
+</div>
+
+
+      
+    </main>
+
+</body>
+</html>
