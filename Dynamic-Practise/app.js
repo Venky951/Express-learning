@@ -10,7 +10,8 @@ app.set("views", "views");
 //Local Module
 const userroutes = require("./routes/user");
 const { hostroutes } = require("./routes/host");
-const rootdir = require("./util/path");
+const rootdir = require("./utils/path");
+const hostcontroller = require("./controllers/error");
 
 app.use((req, res, next) => {
   console.log(req.url, req.method);
@@ -22,11 +23,8 @@ app.use(express.static(path.join(rootdir, "public")));
 app.use(userroutes);
 app.use(hostroutes);
 
-app.use((req, res, next) => {
-  res
-    .status(404)
-    .render("404", { title: "404 Not Found-Page", currentpage: "404" });
-});
+app.use(hostcontroller.pageNotFound);
+
 const port = 8790;
 app.listen(port, () => {
   console.log(`Server is listening on port http://localhost:${port}`);
