@@ -1,8 +1,10 @@
-<%- include('../partials/header') %>
+<%- include('partials/header') %>
 </head>
 <body>
-  <%- include('../partials/nav') %>
-<main class="container mx-auto mt-10 px-4">    
+  
+   <%- include('partials/nav') %>
+   <main class="container mx-auto bg-white shadow-lg rounded-lg p-8 mt-10 max-w-xl">
+    
     <h2 class="text-5xl text-rose-500 font-bold text-center mb-6">
       Welcome to Air bnb
     </h2> 
@@ -11,7 +13,10 @@
     Available Homes for You
   </h3>
 
-  
+  <div class="space-y-6">
+  <h3 class="text-3xl font-semibold text-gray-800 mb-4">
+    Available Homes 
+  </h3>
 
   <!-- Horizontal slider -->
   <div class="flex gap-6 overflow-x-auto pb-4 scroll-smooth">
@@ -27,15 +32,15 @@
 
         <div class="p-4 space-y-1">
           <h4 class="text-lg font-bold text-gray-800">
-            <%= candidate.Housename %>
+            <%= candidate.name %>
           </h4>
 
           <p class="text-sm text-gray-600 font-semibold">
-            💰 <%= candidate.Price %>
+            💰 <%= candidate.price %>
         </p>
 
           <p class="text-sm text-gray-600 font-semibold">
-            📍 <%= candidate.Location %>
+            📍 <%= candidate.location %>
           </p>
 
          
