@@ -5,17 +5,8 @@ const express = require("express");
 const userroutes = express.Router();
 
 //Local Module
-const rootdir = require("../util/path");
-const { candidatesdetails } = require("./host");
-userroutes.get("/", (req, res, next) => {
-  // console.log(this.name);
-  //console.log(this.email);
-  console.log(candidatesdetails);
-  res.render("home", {
-    candidatesdetails: candidatesdetails,
-    title: "Home Page",
-    currentpage: "home",
-  });
-});
+const rootdir = require("../utils/path");
+const homecontroller = require("../controllers/home");
+userroutes.get("/", homecontroller.gethome);
 
 module.exports = userroutes;
